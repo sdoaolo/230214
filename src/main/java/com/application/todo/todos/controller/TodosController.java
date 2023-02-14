@@ -44,11 +44,11 @@ public class TodosController {
     }
     @GetMapping
     private ResponseEntity<?> getAllTodos(){
-        List<Todos> todoList = todosService.getAllTodos();
-        if (todoList.size() == 0){
-            return new ResponseEntity("To-do Application !",HttpStatus.OK);
-        }
-        return ResponseEntity.ok(todoList);
+        List<Todos> allList = todosService.getAllTodos();
+        if (allList.size() == 0) {
+            return new ResponseEntity(
+                    "To-do Application !",HttpStatus.OK); }
+        return ResponseEntity.ok(allList);
     }
     @DeleteMapping("{id}")
     private ResponseEntity deleteTodos(@PathVariable ("id") Long id){
