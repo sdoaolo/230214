@@ -48,7 +48,18 @@ public class TodosController {
         if (allList.size() == 0) {
             return new ResponseEntity(
                     "To-do Application !",HttpStatus.OK); }
-        return ResponseEntity.ok(allList);
+
+        //회원의 id를 저장해서 이 id가 10이내인지 확인하는 로직을 추가한다.
+        int id = 3;
+        if (id <= 10) {
+            return new ResponseEntity<>("10이내입니다.", HttpStatus.OK);
+
+        }
+        else{
+            return new ResponseEntity<>("권한이 없습니다..", HttpStatus.OK);
+        }
+
+        //return ResponseEntity.ok(allList);
     }
     @DeleteMapping("{id}")
     private ResponseEntity deleteTodos(@PathVariable ("id") Long id){
